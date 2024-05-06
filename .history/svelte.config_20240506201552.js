@@ -15,12 +15,6 @@ const config = {
 		adapter: adapter(),
 		alias: {
 			'styled-system': './styled-system/*'
-		},
-		typescript: {
-			config: (config) => {
-			  config.include.push("../styled-system");
-			  return config;
-			},
 		}
 	}
 };

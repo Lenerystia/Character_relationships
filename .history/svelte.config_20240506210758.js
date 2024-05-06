@@ -21,7 +21,6 @@ const config = {
 			  config.include.push("../styled-system");
 			  return config;
 			},
-		}
 	}
 };
  
