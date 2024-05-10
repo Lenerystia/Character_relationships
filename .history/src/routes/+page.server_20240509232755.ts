@@ -1,0 +1,17 @@
+import { characters } from "../schema/schema";
+// import { relation } from "../schema/schema";
+import { db } from '$lib/db';
+
+// export const load = (async () => {
+//    const result = await db.select().from(characters)
+//    return {
+//        result
+//    };
+// })
+
+export const load = (async () => {
+    const result = await db.select({"First char":characters.first_name,}).from(characters)
+    return {
+        result
+    };
+ })

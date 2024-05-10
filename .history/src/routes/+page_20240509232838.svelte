@@ -14,7 +14,7 @@
         fontWeight: 'bold',
         fontSize: '20px'
     })}>
-        <h2>Characters</h2>
+        <h2>Characters relations</h2>
     </div>
 </div>
 
@@ -42,7 +42,6 @@
 {/if}
 
 <h2>Relations</h2>
-<h2>Characters Relations</h2>
 
 <style>
     table, th, td {

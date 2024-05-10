@@ -1,7 +1,6 @@
-<script lang="ts">
+<script>
     // @ts-ignore
     import { css } from '/styled-system/css'
-    export let data; // data returned by the load function
 </script>
 <div class={css({
     border: '3px solid #555555',
@@ -14,10 +13,32 @@
         fontWeight: 'bold',
         fontSize: '20px'
     })}>
-        <h2>Characters</h2>
+        Character Relation
     </div>
 </div>
+<div>
+    <p>testowy content</p>
+</div>
 
+<script lang="ts">
+    // export let form;
+    export let data; // data returned by the load function
+    // https://www.tronic247.com/using-drizzle-orm-with-sveltekit/
+</script>
+<h1>Czyżby faktycznie działało?</h1>
+<p>If you are here, you successfully setup DRIZZLE ORM with SVELTEKIT</p>
+
+<!--{#if data?.result}
+    {#each data.result as user}
+    <div class="flex">
+        <form action="/?/update" method="post">
+            <input type="number" name="id" value={user.id} />
+            <input type="text" name="content" value={user.fullName} />
+            <input type="number" name="phone" value={user.phone} />
+        </form>
+    </div>
+    {/each}
+{/if}-->
 {#if data?.result}
     <div>
         <table>
@@ -40,15 +61,11 @@
         </table>
     </div>
 {/if}
-
-<h2>Relations</h2>
-<h2>Characters Relations</h2>
-
+<h2>Chyba zaczynam to rozumieć jako tako.</h2>
 <style>
     table, th, td {
 		border: 1px solid;
 		border-collapse: collapse;
 		margin-bottom: 10px;
-        padding: 5px;
 	}
 </style>

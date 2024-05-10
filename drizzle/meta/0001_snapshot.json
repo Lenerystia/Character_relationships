@@ -1,0 +1,98 @@
+{
+  "id": "6190d11a-4aae-4a49-b612-d9cc9379d411",
+  "prevId": "c7d211a9-ac16-43fd-af70-4763049d0dc7",
+  "version": "5",
+  "dialect": "pg",
+  "tables": {
+    "characters": {
+      "name": "characters",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "first_name": {
+          "name": "first_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "last_name": {
+          "name": "last_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "relations": {
+      "name": "relations",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "id_char_1": {
+          "name": "id_char_1",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "id_char_2": {
+          "name": "id_char_2",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "relations_id_char_1_characters_id_fk": {
+          "name": "relations_id_char_1_characters_id_fk",
+          "tableFrom": "relations",
+          "tableTo": "characters",
+          "columnsFrom": [
+            "id_char_1"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "relations_id_char_2_characters_id_fk": {
+          "name": "relations_id_char_2_characters_id_fk",
+          "tableFrom": "relations",
+          "tableTo": "characters",
+          "columnsFrom": [
+            "id_char_2"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

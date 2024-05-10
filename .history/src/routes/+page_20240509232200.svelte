@@ -42,7 +42,6 @@
 {/if}
 
 <h2>Relations</h2>
-<h2>Characters Relations</h2>
 
 <style>
     table, th, td {
