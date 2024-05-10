@@ -3,7 +3,7 @@ import type { Config } from "drizzle-kit";
 export default {
  schema: "./src/schema/schema.ts",
  out: "./drizzle",
- dialect: "postgresql",
+ dialect: "pg",
 //  driver: 'pg',
  dbCredentials: {
    host: "192.168.56.113",
