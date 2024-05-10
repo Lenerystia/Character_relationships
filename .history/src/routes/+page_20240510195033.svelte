@@ -3,12 +3,20 @@
     import { css } from '/styled-system/css'
     export let data; // data returned by the load function
 </script>
-<a href="characters">Postacie</a>
-<br>
-<a href="relations">Relacje</a>
-<br>
-<a href="/">Relacje z postaciami</a>
-<h2>Character Relations</h2>
+<div class={css({
+    border: '3px solid #555555',
+    boxShadow: '4px 4px 0px #555555',
+    borderRadius: '13px',
+    padding: 6,
+})}>
+    <div class={css({
+        color: 'red.600',
+        fontWeight: 'bold',
+        fontSize: '20px'
+    })}>
+        <h2>Characters Relations</h2>
+    </div>
+</div>
 
 {#if data?.result}
     <div>

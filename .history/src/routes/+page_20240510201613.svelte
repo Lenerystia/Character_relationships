@@ -3,11 +3,7 @@
     import { css } from '/styled-system/css'
     export let data; // data returned by the load function
 </script>
-<a href="characters">Postacie</a>
-<br>
-<a href="relations">Relacje</a>
-<br>
-<a href="/">Relacje z postaciami</a>
+<a href="characters" target="_blank" rel="noopener noreferrer"></a>
 <h2>Character Relations</h2>
 
 {#if data?.result}

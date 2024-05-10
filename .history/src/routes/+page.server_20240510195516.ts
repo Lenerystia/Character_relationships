@@ -19,3 +19,10 @@ export const load = (async () => {
        result
    };
 })
+
+// export const load = (async () => {
+//     const result = await db.select({"First char":characters.firstName, }).from(characters)
+//     return {
+//         result
+//     };
+//  })

@@ -5,17 +5,23 @@ import { eq } from "drizzle-orm/sql";
 import { alias } from "drizzle-orm/pg-core";
 
 export const load = (async () => {
-    const char2 = alias(characters, "characters2")
+    const parent = alias(characters, "characters2")
     const result = await db.select({
-        'Bohater pierwszy': characters.lastName,
-        'Bohater drugi': char2.lastName,
-        'O relacji': relations.about,
+        bohater1: characters.lastName,
+        bohater2: parent.lastName
     })
     .from(relations)
     .innerJoin(characters, eq(characters.id, relations.idChar1))
-    .innerJoin(char2, eq(char2.id, relations.idChar2));
+    .innerJoin(parent, eq(parent.id, relations.idChar2));
 //    const result = await db.select().from(characters)
    return {
        result
    };
 })
+
+// export const load = (async () => {
+//     const result = await db.select({"First char":characters.firstName, }).from(characters)
+//     return {
+//         result
+//     };
+//  })

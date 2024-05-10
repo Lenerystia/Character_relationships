@@ -7,9 +7,9 @@ import { alias } from "drizzle-orm/pg-core";
 export const load = (async () => {
     const char2 = alias(characters, "characters2")
     const result = await db.select({
-        'Bohater pierwszy': characters.lastName,
-        'Bohater drugi': char2.lastName,
-        'O relacji': relations.about,
+        bohater1: characters.lastName,
+        'bohater 2': char2.lastName,
+        'about': relations
     })
     .from(relations)
     .innerJoin(characters, eq(characters.id, relations.idChar1))
@@ -19,3 +19,10 @@ export const load = (async () => {
        result
    };
 })
+
+// export const load = (async () => {
+//     const result = await db.select({"First char":characters.firstName, }).from(characters)
+//     return {
+//         result
+//     };
+//  })

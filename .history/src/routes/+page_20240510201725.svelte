@@ -4,7 +4,7 @@
     export let data; // data returned by the load function
 </script>
 <a href="characters">Postacie</a>
-<br>
+br
 <a href="relations">Relacje</a>
 <br>
 <a href="/">Relacje z postaciami</a>
