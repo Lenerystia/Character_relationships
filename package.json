@@ -35,7 +35,10 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@types/d3-graphviz": "^2.6.10",
+		"d3-graphviz": "^5.4.0",
 		"drizzle-orm": "^0.30.10",
-		"pg": "^8.11.5"
+		"pg": "^8.11.5",
+		"vite-plugin-static-copy": "^1.0.4"
 	}
 }

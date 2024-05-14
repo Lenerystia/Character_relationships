@@ -4,14 +4,11 @@
     import { graphviz } from "d3-graphviz";
     // import { css } from '/styled-system/css'
     export let data; // data returned by the load function
-    // let name = data.result[0]["Bohater pierwszy"]
-    let name1 = data.result[0].Bohater1Imie
-    let name2 = data.result[0].Bohater2Imie
-    let rel = data.result[0]
-    let name3 = data.result[1].Bohater1Imie
-    let name4 = data.result[1].Bohater2Imie
+    let name = data.result[0]
+    let name2 = data.result[1]
+    let rel = data.result[2]
     onMount(() => {
-    graphviz("#graph").renderDot("digraph { "+name1 +"->"+name2+";"+name3+"->"+name4+" }");
+    graphviz("#graph").renderDot("digraph { a -> b, c }");
   });
 </script>
 <main>
