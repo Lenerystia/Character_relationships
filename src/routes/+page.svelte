@@ -5,14 +5,23 @@
     // import { css } from '/styled-system/css'
     export let data; // data returned by the load function
     // let name = data.result[0]["Bohater pierwszy"]
+    let tab = []
     for (let i=0; i<data.result.length; i++){
         let name1 = data.result[i]["Bohater pierwszy"]
         let name2 = data.result[i]["Bohater drugi"]
         let rel = data.result[i]["O relacji"]
-        onMount(() => {
-            graphviz("#graph").renderDot("digraph { "+name1 +"->"+name2+" [ label="+ rel +" ]; }");
-        });
+        tab.push(name1+"->"+name2+"[label="+rel+"];")
+        // tab.push(name1+"->"+name2+";")
     }
+    onMount(() => {
+            graphviz("#graph").renderDot("digraph {"+tab[0]+tab[1]+tab[2]+"}");
+    });
+    
+    // for(let i=0; i<tab.length;i++){
+    //     // console.log(tab[i])
+    //     console.log("digraph {"+tab[i]+"}")
+    // }
+   
     // let name3 = data.result[1].Bohater1Imie
     // let name4 = data.result[1].Bohater2Imie
     // onMount(() => {
