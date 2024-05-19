@@ -17,8 +17,8 @@ export const load = (async () => {
             // 'Bohater pierwszy': characters.lastName,
             // 'Bohater drugi': char2.lastName,
             // 'O relacji': relations.about,
-        'Bohater pierwszy': sql`CONCAT(${characters.firstName}, '_',${characters.lastName} )`,
-        'Bohater drugi': sql`CONCAT(${char2.firstName}, '_',${char2.lastName} )`,
+        'Bohater pierwszy': sql`CONCAT(${characters.firstName}, ' ',${characters.lastName} )`,
+        'Bohater drugi': sql`CONCAT(${char2.firstName}, ' ',${char2.lastName} )`,
         'O relacji': relations.about,
     // const result = await db.select({
     //     'Bohater pierwszy': sql`CONCAT(${characters.firstName}, ' ',${characters.lastName} )`,

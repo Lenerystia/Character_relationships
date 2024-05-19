@@ -11,7 +11,8 @@
         let name1 = data.result[i]["Bohater pierwszy"]
         let name2 = data.result[i]["Bohater drugi"]
         let rel = data.result[i]["O relacji"]
-        help += name1+"->"+name2+"[label="+rel+"];"
+        // help += name1+"->"+name2+"[label="+rel+"];"
+        help += '"'+name1+'"->"'+name2+'"[label="'+rel+'"];'
         // tab.push(name1+"->"+name2+"[label="+rel+"];")
         // tab.push(name1+"->"+name2+";")
     }
