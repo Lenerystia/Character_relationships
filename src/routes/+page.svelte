@@ -5,14 +5,19 @@
     // import { css } from '/styled-system/css'
     export let data; // data returned by the load function
     // let name = data.result[0]["Bohater pierwszy"]
-    let name1 = data.result[0]["Bohater pierwszy"]
-    let name2 = data.result[0]["Bohater drugi"]
-    let rel = data.result[0]
+    for (let i=0; i<data.result.length; i++){
+        let name1 = data.result[i]["Bohater pierwszy"]
+        let name2 = data.result[i]["Bohater drugi"]
+        let rel = data.result[i]["O relacji"]
+        onMount(() => {
+            graphviz("#graph").renderDot("digraph { "+name1 +"->"+name2+" [ label="+ rel +" ]; }");
+        });
+    }
     // let name3 = data.result[1].Bohater1Imie
     // let name4 = data.result[1].Bohater2Imie
-    onMount(() => {
-    graphviz("#graph").renderDot("digraph { "+name1 +"->"+name2+"; }");
-  });
+    // onMount(() => {
+    //         graphviz("#graph").renderDot("digraph { "+name1 +"->"+name2+" [ label="+ rel +" ]; }");
+    // });
 </script>
 <main>
     <a href="characters">Postacie</a>
@@ -44,7 +49,8 @@
             </table>
         </div>
     {/if}
-    <svg id="graph" />
+
+    <svg id="graph" width=500px height=500px/>
 </main>
 <!-- <h2>Relations</h2> -->
 <!-- <h2>Characters Relations</h2> -->
