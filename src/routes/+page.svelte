@@ -2,6 +2,9 @@
     // @ts-ignore
     import { onMount } from "svelte";
     import { graphviz } from "d3-graphviz";
+    // import "../app.css"
+	// import { css } from "styled-system/css";
+	// import { hstack, stack } from "styled-system/patterns";
     // import { css } from '/styled-system/css'
     export let data; // data returned by the load function
     // let name = data.result[0]["Bohater pierwszy"]
@@ -35,39 +38,53 @@
     // onMount(() => {
     //         graphviz("#graph").renderDot("digraph { "+name1 +"->"+name2+" [ label="+ rel +" ]; }");
     // });
+    // const styles = css({
+    //     backgroundColor: 'gainsboro',
+    //     // borderRadius: '9999px',
+    //     fontSize: '20px',
+    //     padding: '10px 16px',
+    //     width: '700px',
+    //     height: '300px'
+
+    // })
+
 </script>
 <main>
-    <a href="characters">Postacie</a>
-    <br>
-    <a href="relations">Relacje</a>
-    <br>
-    <a href="/">Relacje z postaciami</a>
-    <h2>Character Relations</h2>
-
-    {#if data?.result}
-        <div>
-            <table>
-                <thead>
-                    <tr>
-                        {#each Object.keys(data.result[0]) as colHead}
-                            <th>{colHead}</th>
-                        {/each}
-                    </tr>
-                </thead>
-                <tbody>
-                    {#each Object.values(data.result) as row}
+    <div>
+        <a href="characters">Postacie</a>
+        <br>
+        <a href="relations">Relacje</a>
+        <br>
+        <a href="/">Relacje z postaciami</a>
+        <h2>Character Relations</h2>
+    </div>
+    <div>
+        {#if data?.result}
+            <div>
+                <table>
+                    <thead>
                         <tr>
-                            {#each Object.values(row) as cell}
-                                <td>{cell}</td>
+                            {#each Object.keys(data.result[0]) as colHead}
+                                <th>{colHead}</th>
                             {/each}
                         </tr>
-                    {/each}
-                </tbody>
-            </table>
-        </div>
-    {/if}
-
-    <svg id="graph" width=1000px height=1000px/>
+                    </thead>
+                    <tbody>
+                        {#each Object.values(data.result) as row}
+                            <tr>
+                                {#each Object.values(row) as cell}
+                                    <td>{cell}</td>
+                                {/each}
+                            </tr>
+                        {/each}
+                    </tbody>
+                </table>
+            </div>
+        {/if}
+    </div>
+    <div>
+        <svg id="graph" width=1000px height=500px/>
+    </div>
 </main>
 <!-- <h2>Relations</h2> -->
 <!-- <h2>Characters Relations</h2> -->
