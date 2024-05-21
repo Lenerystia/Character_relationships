@@ -5,6 +5,7 @@ import { eq } from "drizzle-orm/sql";
 import { sql } from "drizzle-orm/sql";
 import { alias } from "drizzle-orm/pg-core";
 
+
 export const load = (async () => {
     const char2 = alias(characters, "characters2")
     // const result = await db.select({

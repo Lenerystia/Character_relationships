@@ -5,39 +5,27 @@
     // import "../app.css"
 	// import { css } from "styled-system/css";
 	// import { hstack, stack } from "styled-system/patterns";
-    // import { css } from '/styled-system/css'
-    export let data; // data returned by the load function
-    // let name = data.result[0]["Bohater pierwszy"]
-    // let tab = []
-    let help= "";
+    /**
+     * data returned by the load function
+     */
+    export let data;
+    let drawDiag= "";
+    /**
+     * przypisanie do zmiennej (zmienna pomocnicza do rysowania grafu) danych z bazy danych
+    */
     for (let i=0; i<data.result.length; i++){
-        let name1 = data.result[i]["Bohater pierwszy"]
-        let name2 = data.result[i]["Bohater drugi"]
-        let rel = data.result[i]["O relacji"]
-        // help += name1+"->"+name2+"[label="+rel+"];"
-        help += '"'+name1+'"->"'+name2+'"[label="'+rel+'"];'
-        // tab.push(name1+"->"+name2+"[label="+rel+"];")
-        // tab.push(name1+"->"+name2+";")
+        let nameFirstChar = data.result[i]["Bohater pierwszy"]
+        let nameSecondChar = data.result[i]["Bohater drugi"]
+        let relShip = data.result[i]["O relacji"]
+        drawDiag += '"'+nameFirstChar+'"->"'+nameSecondChar+'"[label="'+relShip+'"];'
     }
-    // for (let i=0; i<tab.length;i++){
-    //     help = help + tab[i]
-    // }
+    /**
+     * funkcja rysująca graf
+    */
     onMount(() => {
-            graphviz("#graph").renderDot("digraph {"+help+"}");
+            graphviz("#graph").renderDot("digraph {"+drawDiag+"}");
     });
 
-
-
-    // for(let i=0; i<tab.length;i++){
-    //     // console.log(tab[i])
-    //     console.log("digraph {"+tab[i]+"}")
-    // }
-   
-    // let name3 = data.result[1].Bohater1Imie
-    // let name4 = data.result[1].Bohater2Imie
-    // onMount(() => {
-    //         graphviz("#graph").renderDot("digraph { "+name1 +"->"+name2+" [ label="+ rel +" ]; }");
-    // });
     // const styles = css({
     //     backgroundColor: 'gainsboro',
     //     // borderRadius: '9999px',
@@ -61,7 +49,7 @@
     <div>
         {#if data?.result}
             <div>
-                <table>
+                <table class="rainbow">
                     <thead>
                         <tr>
                             {#each Object.keys(data.result[0]) as colHead}
