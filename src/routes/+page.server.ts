@@ -5,7 +5,11 @@ import { eq } from "drizzle-orm/sql";
 import { sql } from "drizzle-orm/sql";
 import { alias } from "drizzle-orm/pg-core";
 
-
+/**
+ * to też mam tak opisywać co to robi?
+ * Dobrze
+ * Pobiera z bazy danych informacje o postaci 1 i 2 oraz jaka relacja je łączy
+ */
 export const load = (async () => {
     const char2 = alias(characters, "characters2")
     // const result = await db.select({
@@ -18,9 +22,9 @@ export const load = (async () => {
             // 'Bohater pierwszy': characters.lastName,
             // 'Bohater drugi': char2.lastName,
             // 'O relacji': relations.about,
-        'Bohater pierwszy': sql`CONCAT(${characters.firstName}, ' ',${characters.lastName} )`,
-        'Bohater drugi': sql`CONCAT(${char2.firstName}, ' ',${char2.lastName} )`,
-        'O relacji': relations.about,
+        'First Character': sql`CONCAT(${characters.firstName}, ' ',${characters.lastName} )`,
+        'Second Character': sql`CONCAT(${char2.firstName}, ' ',${char2.lastName} )`,
+        'About relationship': relations.about,
     // const result = await db.select({
     //     'Bohater pierwszy': sql`CONCAT(${characters.firstName}, ' ',${characters.lastName} )`,
     //     'Bohater drugi': sql`CONCAT(${char2.firstName}, ' ',${char2.lastName} )`,

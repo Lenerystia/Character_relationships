@@ -1,17 +1,27 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
+
     // @ts-ignore
     import { css } from '/styled-system/css'
     export let data; // data returned by the load function
+    function goToC(){
+        goto('characters');
+    }
+    function goToR(){
+        goto('relations');
+    }
+    function goToCharRel(){
+        goto('/')
+    }
 </script>
 
 
-<a href="characters">Postacie</a>
-<br>
-<a href="relations">Relacje</a>
-<br>
-<a href="/">Relacje z postaciami</a>
+<div>
+    <button on:click={goToC}>Characters</button>
+    <button on:click={goToR}>Relationships</button>
+    <button on:click={goToCharRel}>Characters relationships</button>
+</div>
 <h2>Relations</h2>
-
 
 {#if data?.result}
     <div>
@@ -46,4 +56,8 @@
 		margin-bottom: 10px;
         padding: 5px;
 	}
+    tbody tr:nth-child(even) {
+    background-color: #4C8BF5;
+    color: #fff;
+    }
 </style>

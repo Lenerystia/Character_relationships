@@ -14,7 +14,6 @@ export const load = (async () => {
     .from(relations)
     .innerJoin(characters, eq(characters.id, relations.idChar1))
     .innerJoin(char2, eq(char2.id, relations.idChar2));
-//    const result = await db.select().from(characters)
    return {
        result
    };

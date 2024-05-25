@@ -2,6 +2,7 @@
     // @ts-ignore
     import { onMount } from "svelte";
     import { graphviz } from "d3-graphviz";
+    import { goto } from "$app/navigation";
     // import "../app.css"
 	// import { css } from "styled-system/css";
 	// import { hstack, stack } from "styled-system/patterns";
@@ -14,10 +15,24 @@
      * przypisanie do zmiennej (zmienna pomocnicza do rysowania grafu) danych z bazy danych
     */
     for (let i=0; i<data.result.length; i++){
-        let nameFirstChar = data.result[i]["Bohater pierwszy"]
-        let nameSecondChar = data.result[i]["Bohater drugi"]
-        let relShip = data.result[i]["O relacji"]
+        let nameFirstChar = data.result[i]["First Character"]
+        let nameSecondChar = data.result[i]["Second Character"]
+        let relShip = data.result[i]["About relationship"]
         drawDiag += '"'+nameFirstChar+'"->"'+nameSecondChar+'"[label="'+relShip+'"];'
+    }
+    /**
+     * button to navigated
+     * TODO: użyć eventu, który wykryje, który button wciśnięty (na podstawie name może?) i jedna funkcja za to będzie odpowiadać
+     * TODO use event, which will detect, which button on click (based name perhaps?) and one function responsible from this
+     */
+    function goToC(){
+        goto('characters');
+    }
+    function goToR(){
+        goto('relations');
+    }
+    function goToCharRel(){
+        goto('/')
     }
     /**
      * funkcja rysująca graf
@@ -38,16 +53,12 @@
 
 </script>
 <main>
-    <div>
-        <a href="characters">Postacie</a>
-        <br>
-        <a href="relations">Relacje</a>
-        <br>
-        <a href="/">Relacje z postaciami</a>
-        <h2>Character Relations</h2>
-    </div>
-    <div>
-        {#if data?.result}
+    <div id="left">
+        <button on:click={goToC}>Characters</button>
+        <button on:click={goToR}>Relationships</button>
+        <button on:click={goToCharRel}>Characters relationships</button>
+        <h2>Characters relationships</h2>
+    {#if data?.result}
             <div>
                 <table class="rainbow">
                     <thead>
@@ -70,18 +81,25 @@
             </div>
         {/if}
     </div>
-    <div>
-        <svg id="graph" width=1000px height=500px/>
+    <div id="svg">
+        <svg id="graph" width=1050px height=1000px/>
     </div>
 </main>
-<!-- <h2>Relations</h2> -->
-<!-- <h2>Characters Relations</h2> -->
-
 <style>
+    main{
+        display: flex;
+    }
+    .svg {
+        float: left;
+    }
     table, th, td {
 		border: 1px solid;
 		border-collapse: collapse;
 		margin-bottom: 10px;
         padding: 5px;
 	}
+    tbody tr:nth-child(even) {
+    background-color: #4C8BF5;
+    color: #fff;
+    }
 </style>
