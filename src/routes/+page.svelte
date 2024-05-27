@@ -12,7 +12,7 @@
     export let data;
     let drawDiag= "";
     /**
-     * przypisanie do zmiennej (zmienna pomocnicza do rysowania grafu) danych z bazy danych
+     * przypisanie do zmiennej (zmienna pomocnicza do rysowania grafu) danych z bazy danych z odpowiednim formatowaniem
     */
     for (let i=0; i<data.result.length; i++){
         let nameFirstChar = data.result[i]["First Character"]
@@ -21,8 +21,7 @@
         drawDiag += '"'+nameFirstChar+'"->"'+nameSecondChar+'"[label="'+relShip+'"];'
     }
     /**
-     * button to navigated
-     * TODO: użyć eventu, który wykryje, który button wciśnięty (na podstawie name może?) i jedna funkcja za to będzie odpowiadać
+     * functions navigated for buttons
      * TODO use event, which will detect, which button on click (based name perhaps?) and one function responsible from this
      */
     function goToC(){
@@ -88,9 +87,6 @@
 <style>
     main{
         display: flex;
-    }
-    .svg {
-        float: left;
     }
     table, th, td {
 		border: 1px solid;
