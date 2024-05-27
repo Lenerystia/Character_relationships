@@ -5,6 +5,9 @@ Now is very simple version
 
 Data about characters and relationships is pulling from database Postgres
 
+Now looks like:
+![obraz](https://github.com/Lenerystia/Character_relationships/assets/77778018/3323fdc4-c610-4402-a7c8-72aa5ab2a50d)
+
 ## Roadmap
 
 - adding forms to add characters and relationships
