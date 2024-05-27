@@ -1,3 +1,4 @@
+import { env } from '$env/dynamic/private';
 import pkg from 'pg';
 import { drizzle } from "drizzle-orm/node-postgres";
 
@@ -7,11 +8,11 @@ import { drizzle } from "drizzle-orm/node-postgres";
 
 // or
 const client = new pkg.Client({
- host: "192.168.56.113",
- port: 5432,
- user: "postgres",
- password: "postgres",
- database: "test",
+ host: env.DB_HOST,
+ port: env.DB_port,
+ user: env.DB_USER,
+ password: env.DB_PASS,
+ database: env.DB_DB,
 });
 
 await client.connect();
