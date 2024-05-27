@@ -1,4 +1,9 @@
+# Character_relationships
+Small project drawing relationships between characters
+
 Now is very simple version
+
+Data about characters and relationships is pulling from database Postgres
 
 ## Roadmap
 
