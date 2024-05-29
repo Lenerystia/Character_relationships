@@ -12,23 +12,10 @@ import { alias } from "drizzle-orm/pg-core";
  */
 export const load = (async () => {
     const char2 = alias(characters, "characters2")
-    // const result = await db.select({
-        // Bohater1Imie: characters.firstName,
-        // Bohater1Nazwisko: characters.lastName,
-        // Bohater2Imie: char2.firstName,
-        // Bohater2Nazwisko: char2.lastName,
-        // Relacja: relations.about,
     const result = await db.select({
-            // 'Bohater pierwszy': characters.lastName,
-            // 'Bohater drugi': char2.lastName,
-            // 'O relacji': relations.about,
         'First Character': sql`CONCAT(${characters.firstName}, ' ',${characters.lastName} )`,
         'Second Character': sql`CONCAT(${char2.firstName}, ' ',${char2.lastName} )`,
         'About relationship': relations.about,
-    // const result = await db.select({
-    //     'Bohater pierwszy': sql`CONCAT(${characters.firstName}, ' ',${characters.lastName} )`,
-    //     'Bohater drugi': sql`CONCAT(${char2.firstName}, ' ',${char2.lastName} )`,
-    //     'O relacji': relations.about,
     })
     .from(relations)
     .innerJoin(characters, eq(characters.id, relations.idChar1))

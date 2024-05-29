@@ -40,16 +40,6 @@
             graphviz("#graph").renderDot("digraph {"+drawDiag+"}");
     });
 
-    // const styles = css({
-    //     backgroundColor: 'gainsboro',
-    //     // borderRadius: '9999px',
-    //     fontSize: '20px',
-    //     padding: '10px 16px',
-    //     width: '700px',
-    //     height: '300px'
-
-    // })
-
 </script>
 <main>
     <div id="left">
