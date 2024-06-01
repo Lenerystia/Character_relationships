@@ -2,8 +2,8 @@
     // @ts-ignore
     import { onMount } from "svelte";
     import { graphviz } from "d3-graphviz";
-    import { navigate } from "$lib/navigate.js";
-    // import "../app.css"
+    import { navigate } from "$lib/navigate";
+    import '$lib/app.css'
 	// import { css } from "styled-system/css";
 	// import { hstack, stack } from "styled-system/patterns";
     /**
@@ -20,10 +20,6 @@
         let relShip = data.result[i]["About relationship"]
         drawDiag += '"'+nameFirstChar+'"->"'+nameSecondChar+'"[label="'+relShip+'"];'
     }
-    /**
-     * functions navigated for buttons
-     * TODO use event, which will detect, which button on click (based name perhaps?) and one function responsible from this
-     */
     /**
      * funkcja rysująca graf
     */
@@ -65,18 +61,3 @@
         <svg id="graph" width=1050px height=1000px/>
     </div>
 </main>
-<style>
-    main{
-        display: flex;
-    }
-    table, th, td {
-		border: 1px solid;
-		border-collapse: collapse;
-		margin-bottom: 10px;
-        padding: 5px;
-	}
-    tbody tr:nth-child(even) {
-    background-color: #4C8BF5;
-    color: #fff;
-    }
-</style>

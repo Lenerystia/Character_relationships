@@ -1,5 +1,6 @@
 <script lang="ts">
-    import { navigate } from "$lib/navigate.js";
+    import { navigate } from "$lib/navigate";
+    import '$lib/app.css'
 
     // @ts-ignore
     import { css } from '/styled-system/css'
@@ -36,19 +37,3 @@
         </table>
     </div>
 {/if}
-
-<!-- <h2>Relations</h2> -->
-<!-- <h2>Characters Relations</h2> -->
-
-<style>
-    table, th, td {
-		border: 1px solid;
-		border-collapse: collapse;
-		margin-bottom: 10px;
-        padding: 5px;
-	}
-    tbody tr:nth-child(even) {
-    background-color: #4C8BF5;
-    color: #fff;
-    }
-</style>

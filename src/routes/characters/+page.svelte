@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { navigate } from "$lib/navigate.js";
-    // @ts-ignore
-    import { css } from '/styled-system/css'
+    import { navigate } from "$lib/navigate";
+    import '$lib/app.css'
+    // import { css } from '/styled-system/css'
     export let data; // data returned by the load function
 
 
@@ -49,7 +49,7 @@
         padding: 5px;
 	}
     tbody tr:nth-child(even) {
-    background-color: #4C8BF5;
-    color: #fff;
+        background-color: #4C8BF5;
+        color: #fff;
     }
 </style>
