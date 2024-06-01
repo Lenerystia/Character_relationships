@@ -2,7 +2,7 @@
     // @ts-ignore
     import { onMount } from "svelte";
     import { graphviz } from "d3-graphviz";
-    import { goto } from "$app/navigation";
+    import { navigate } from "$lib/navigate.js";
     // import "../app.css"
 	// import { css } from "styled-system/css";
 	// import { hstack, stack } from "styled-system/patterns";
@@ -24,15 +24,6 @@
      * functions navigated for buttons
      * TODO use event, which will detect, which button on click (based name perhaps?) and one function responsible from this
      */
-    function goToC(){
-        goto('characters');
-    }
-    function goToR(){
-        goto('relations');
-    }
-    function goToCharRel(){
-        goto('/')
-    }
     /**
      * funkcja rysująca graf
     */
@@ -43,9 +34,9 @@
 </script>
 <main>
     <div id="left">
-        <button on:click={goToC}>Characters</button>
-        <button on:click={goToR}>Relationships</button>
-        <button on:click={goToCharRel}>Characters relationships</button>
+        <button name="characters" on:click={navigate}>Characters</button>
+        <button name="relations" on:click={navigate}>Relationships</button>
+        <button name="/" on:click={navigate}>Characters relationships</button>
         <h2>Characters relationships</h2>
     {#if data?.result}
             <div>

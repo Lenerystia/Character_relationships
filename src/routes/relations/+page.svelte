@@ -1,25 +1,16 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
+    import { navigate } from "$lib/navigate.js";
 
     // @ts-ignore
     import { css } from '/styled-system/css'
     export let data; // data returned by the load function
-    function goToC(){
-        goto('characters');
-    }
-    function goToR(){
-        goto('relations');
-    }
-    function goToCharRel(){
-        goto('/')
-    }
 </script>
 
 
 <div>
-    <button on:click={goToC}>Characters</button>
-    <button on:click={goToR}>Relationships</button>
-    <button on:click={goToCharRel}>Characters relationships</button>
+    <button name="characters" on:click={navigate}>Characters</button>
+    <button name="relations" on:click={navigate}>Relationships</button>
+    <button name="/" on:click={navigate}>Characters relationships</button>
 </div>
 <h2>Relations</h2>
 
