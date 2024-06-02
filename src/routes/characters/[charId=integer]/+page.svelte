@@ -1,7 +1,6 @@
 <script lang="ts">
     import '$lib/app.css'
     import { page } from '$app/stores';
-	import { queryParameters } from 'sveltekit-search-params';
 
     export let data
 
