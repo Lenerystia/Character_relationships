@@ -13,6 +13,7 @@
     let drawDiag= "";
     /**
      * przypisanie do zmiennej (zmienna pomocnicza do rysowania grafu) danych z bazy danych z odpowiednim formatowaniem
+     * TODO: clickable links to characters
     */
     for (let i=0; i<data.result.length; i++){
         let nameFirstChar = data.result[i]["First Character"]

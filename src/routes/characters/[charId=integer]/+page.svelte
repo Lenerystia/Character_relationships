@@ -11,9 +11,9 @@
 
 </script>
 
-<h1>Page for {charId}</h1>
-<p>This is a dynamic page for {charId}.</p>
+<h1>Page for {charId} - {char.firstName} {char.lastName}</h1>
 
 <h2>Fist Name: {char.firstName}</h2>
 <h2>Last Name: {char.lastName}</h2>
 <h2>ID: {char.id}</h2>
+<p>TODO: zabezpieczenie przed próbą wpisania nieistniejącej postaci</p>
