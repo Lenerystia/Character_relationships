@@ -1,23 +1,13 @@
 import { characters } from '../../schema/schema';
 import { db } from '$lib/db';
 import { eq } from 'drizzle-orm';
+import type { PageServerLoad } from '../$types';
 
-//na razie mam dość walki z pobraniem wartości charId z +page do użycia w queries
-// import Page from './+page.svelte';
-// import { render } from 'svelte/server';
-// import type { RequestHandler } from '@sveltejs/kit';
-
-// let charId: string;
-
-// export const get: RequestHandler = async ({ params }) => {
-//     const charId = params;
-// }
-
-// charId = $page.params.charId;
-
-export const load = (async () => {
-   const result = await db.select().from(characters).where(eq(characters.id, 1));
-   return {
+export const load: PageServerLoad = (async ({params}) => {
+    const charId = params.charId;
+    const result = await db.select().from(characters).where(eq(characters.id, charId));
+    return {
        result
    };
 })
+

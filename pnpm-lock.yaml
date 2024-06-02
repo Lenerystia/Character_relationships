@@ -26,6 +26,9 @@ importers:
       pg:
         specifier: ^8.11.5
         version: 8.11.5
+      sveltekit-search-params:
+        specifier: ^2.1.2
+        version: 2.1.2(@sveltejs/kit@2.5.7(@sveltejs/vite-plugin-svelte@3.1.0(svelte@5.0.0-next.123)(vite@5.2.11(@types/node@17.0.45)(lightningcss@1.23.0)))(svelte@5.0.0-next.123)(vite@5.2.11(@types/node@17.0.45)(lightningcss@1.23.0)))(svelte@5.0.0-next.123)(vite@5.2.11(@types/node@17.0.45)(lightningcss@1.23.0))
       vite-plugin-static-copy:
         specifier: ^1.0.4
         version: 1.0.4(vite@5.2.11(@types/node@17.0.45)(lightningcss@1.23.0))
@@ -2797,6 +2800,12 @@ packages:
   svelte@5.0.0-next.123:
     resolution: {integrity: sha512-EKdXcqT795J34V8TyyUO5ExI0amjeKBECA2t7Py8QeDTMgS9//pQElD0jKsCT/sfmKV4HEoOwf7sqPYINKEfUQ==}
     engines: {node: '>=18'}
+
+  sveltekit-search-params@2.1.2:
+    resolution: {integrity: sha512-wh5WSo46wz48MdWvpchVGrOjoDmbmsNJ7dUToSZ4L1SQ2LOasmTjAAlFhfG/EFvEhR34phRzLF7BjE0ZHzx1Uw==}
+    peerDependencies:
+      '@sveltejs/kit': ^1.0.0 || ^2.0.0
+      svelte: ^3.55.0 || ^4.0.0 || ^5.0.0
 
   text-table@0.2.0:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}
@@ -5752,6 +5761,15 @@ snapshots:
       locate-character: 3.0.0
       magic-string: 0.30.10
       zimmerframe: 1.1.2
+
+  sveltekit-search-params@2.1.2(@sveltejs/kit@2.5.7(@sveltejs/vite-plugin-svelte@3.1.0(svelte@5.0.0-next.123)(vite@5.2.11(@types/node@17.0.45)(lightningcss@1.23.0)))(svelte@5.0.0-next.123)(vite@5.2.11(@types/node@17.0.45)(lightningcss@1.23.0)))(svelte@5.0.0-next.123)(vite@5.2.11(@types/node@17.0.45)(lightningcss@1.23.0)):
+    dependencies:
+      '@sveltejs/kit': 2.5.7(@sveltejs/vite-plugin-svelte@3.1.0(svelte@5.0.0-next.123)(vite@5.2.11(@types/node@17.0.45)(lightningcss@1.23.0)))(svelte@5.0.0-next.123)(vite@5.2.11(@types/node@17.0.45)(lightningcss@1.23.0))
+      '@sveltejs/vite-plugin-svelte': 3.1.0(svelte@5.0.0-next.123)(vite@5.2.11(@types/node@17.0.45)(lightningcss@1.23.0))
+      svelte: 5.0.0-next.123
+    transitivePeerDependencies:
+      - supports-color
+      - vite
 
   text-table@0.2.0: {}
 
