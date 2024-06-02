@@ -42,6 +42,7 @@
 		"dotenv": "^16.4.5",
 		"drizzle-orm": "^0.30.10",
 		"pg": "^8.11.5",
+		"svelte-routing": "^2.13.0",
 		"sveltekit-search-params": "^2.1.2",
 		"vite-plugin-static-copy": "^1.0.4"
 	}
