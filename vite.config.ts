@@ -16,10 +16,5 @@ export default defineConfig({
         }
       ]
     })
-  ],
-  server: {
-    fs: {
-      allow: ['styled-system'],
-    },
-  },
+  ]
 })
