@@ -13,6 +13,8 @@ import { alias } from "drizzle-orm/pg-core";
 export const load = (async () => {
     const char2 = alias(characters, "characters2")
     const result = await db.select({
+        'idFirstChar': characters.id,
+        'idSecondChar': char2.id,
         'First Character': sql`CONCAT(${characters.firstName}, ' ',${characters.lastName} )`,
         'Second Character': sql`CONCAT(${char2.firstName}, ' ',${char2.lastName} )`,
         'About relationship': relations.about,

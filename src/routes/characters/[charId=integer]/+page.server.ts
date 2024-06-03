@@ -8,9 +8,9 @@ import type { PageServerLoad } from '../../$types';
      * I don't know that's right path, but works!
      */
 export const load: PageServerLoad = (async ({params}) => {
-    //dla pokazu, tu wywali błąd w VS code
+    // tu wywali błąd w VS code:
     // const charId = params.charId;
-    //tu nie
+    // tu nie
     const charId = (params as {charId: string}).charId;
     const parseCharId = parseInt(charId);
     const result = await db.select().from(characters).where(eq(characters.id, parseCharId));

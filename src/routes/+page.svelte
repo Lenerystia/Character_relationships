@@ -1,33 +1,80 @@
 <script lang="ts">
-    // @ts-ignore
     import { onMount } from "svelte";
     import { graphviz } from "d3-graphviz";
     import { navigate } from "$lib/navigate";
     import '$lib/app.css'
-	// import { css } from "styled-system/css";
-	// import { hstack, stack } from "styled-system/patterns";
+	import { draw } from "svelte/transition";
     /**
      * data returned by the load function
      */
     export let data;
-    let drawDiag= "";
+
+    let drawDiag = '';
     /**
-     * przypisanie do zmiennej (zmienna pomocnicza do rysowania grafu) danych z bazy danych z odpowiednim formatowaniem
-     * TODO: clickable links to characters
-    */
-    for (let i=0; i<data.result.length; i++){
-        let nameFirstChar = data.result[i]["First Character"]
-        let nameSecondChar = data.result[i]["Second Character"]
-        let relShip = data.result[i]["About relationship"]
-        drawDiag += '"'+nameFirstChar+'"->"'+nameSecondChar+'"[label="'+relShip+'"];'
+     * only notes for me about Set:
+     * By default, Sets in TypeScript use SameValueZero algorithm to determine if two objects are the same. This equality works great for simple types (string, boolean and number) but does not work with custom types.
+     * Consider the following example where we have a Set of numbers. We added the number ‘2’ twice, but it was added only once in the Set.
+     */
+
+    // for (let i=0; i<data.result.length; i++){
+    //     let nameFirstChar = data.result[i]["First Character"];
+    //     let nameSecondChar = data.result[i]["Second Character"];
+    //     let idFirstChar = data.result[i]["idFirstChar"];
+    //     let idSecondChar = data.result[i]["idSecondChar"];
+    //     drawDiag += `"`+nameFirstChar+`" [href="http://localhost:5173/characters/`+data.result[i]["idFirstChar"]+`"];`+
+    //     `"`+nameSecondChar+`" [href="http://localhost:5173/characters/`+data.result[i]["idSecondChar"]+`"];`;
+    // }
+    // console.log(drawDiag);
+
+    const uniqueCharacters = new Set<string>();
+
+    for (let i = 0; i < data.result.length; i++) {
+        let nameFirstChar = data.result[i]["First Character"];
+        let nameSecondChar = data.result[i]["Second Character"];
+        let idFirstChar = data.result[i]["idFirstChar"];
+        let idSecondChar = data.result[i]["idSecondChar"];
+
+        uniqueCharacters.add(`"${nameFirstChar}" [href="http://localhost:5173/characters/${idFirstChar}"];`);
+        uniqueCharacters.add(`"${nameSecondChar}" [href="http://localhost:5173/characters/${idSecondChar}"];`);
     }
-    /**
-     * funkcja rysująca graf
-    */
-    onMount(() => {
-            graphviz("#graph").renderDot("digraph {"+drawDiag+"}");
+
+    uniqueCharacters.forEach((characterWithLink) => {
+        drawDiag += characterWithLink;
     });
 
+    console.log(drawDiag);
+
+    // for (let i=0; i<data.result.length; i++){
+    //     let nameFirstChar = data.result[i]["First Character"]
+    //     let nameSecondChar = data.result[i]["Second Character"]
+    //     let relShip = data.result[i]["About relationship"]
+    //     drawDiag += '"'+nameFirstChar+'"->"'+nameSecondChar+'"[label="'+relShip+'"];'
+    // }
+    // onMount(() => {
+    //         graphviz("#graph").renderDot("digraph {"+drawDiag+"}");
+    // });
+
+
+    /**
+     * * filtering data that should not be visible on the page
+     */
+
+    const hiddenColumns = ['idFirstChar', 'idSecondChar'];
+
+    type DataRow = {
+        [key: string]: any;
+    };
+
+    // Funkcja filtrująca kolumny
+    const filterColumns = (row: DataRow): DataRow => {
+        const filteredRow: DataRow = {};
+        Object.keys(row).forEach((key) => {
+            if (!hiddenColumns.includes(key)) {
+                filteredRow[key] = row[key];
+            }
+        });
+        return filteredRow;
+    };
 </script>
 <main>
     <div id="left">
@@ -35,20 +82,20 @@
         <button name="relations" on:click={navigate}>Relationships</button>
         <button name="/" on:click={navigate}>Characters relationships</button>
         <h2>Characters relationships</h2>
-    {#if data?.result}
+        {#if data?.result}
             <div>
                 <table class="rainbow">
                     <thead>
                         <tr>
-                            {#each Object.keys(data.result[0]) as colHead}
+                            {#each Object.keys(filterColumns(data.result[0])) as colHead}
                                 <th>{colHead}</th>
                             {/each}
                         </tr>
                     </thead>
                     <tbody>
-                        {#each Object.values(data.result) as row}
+                        {#each data.result as row}
                             <tr>
-                                {#each Object.values(row) as cell}
+                                {#each Object.values(filterColumns(row)) as cell}
                                     <td>{cell}</td>
                                 {/each}
                             </tr>
