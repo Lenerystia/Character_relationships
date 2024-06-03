@@ -38,7 +38,7 @@
 </script>
 <main>
     <div id="left">
-        <p>Only for testing whether it works on a device without access to the database</p>
+        <p>Only for testing whether it works on a device without access to the database, trasher and other shit</p>
         <button name="characters" on:click={navigate}>Characters</button>
         <button name="relations" on:click={navigate}>Relationships</button>
         <button name="/" on:click={navigate}>Characters relationships</button>

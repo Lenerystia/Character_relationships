@@ -15,5 +15,5 @@
 <h2>Fist Name: {char.firstName}</h2>
 <h2>Last Name: {char.lastName}</h2>
 <h2>ID: {char.id}</h2>
-<p>TODO: zabezpieczenie przed próbą wpisania nieistniejącej postaci</p>
+<p>TODO: 404 - brak takiej postaci (przy próbie wpisania id/uuid jeśli będzie już)</p>
 <p>TODO: UUID</p>

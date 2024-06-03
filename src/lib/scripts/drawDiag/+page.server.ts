@@ -1,5 +1,5 @@
-import { characters } from "../schema/schema";
-import { relations } from "../schema/schema";
+import { characters } from "../../../schema/schema";
+import { relations } from "../../../schema/schema";
 import { db } from '$lib/db';
 import { eq } from "drizzle-orm/sql";
 import { sql } from "drizzle-orm/sql";

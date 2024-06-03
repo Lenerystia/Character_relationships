@@ -3,7 +3,6 @@
     import { graphviz } from "d3-graphviz";
     import { navigate } from "$lib/navigate";
     import '$lib/app.css'
-	import { draw } from "svelte/transition";
     /**
      * data returned by the load function
      */
@@ -15,19 +14,17 @@
      * By default, Sets in TypeScript use SameValueZero algorithm to determine if two objects are the same. This equality works great for simple types (string, boolean and number) but does not work with custom types.
      * Consider the following example where we have a Set of numbers. We added the number ‘2’ twice, but it was added only once in the Set.
      */
-
-    // for (let i=0; i<data.result.length; i++){
-    //     let nameFirstChar = data.result[i]["First Character"];
-    //     let nameSecondChar = data.result[i]["Second Character"];
-    //     let idFirstChar = data.result[i]["idFirstChar"];
-    //     let idSecondChar = data.result[i]["idSecondChar"];
-    //     drawDiag += `"`+nameFirstChar+`" [href="http://localhost:5173/characters/`+data.result[i]["idFirstChar"]+`"];`+
-    //     `"`+nameSecondChar+`" [href="http://localhost:5173/characters/`+data.result[i]["idSecondChar"]+`"];`;
-    // }
-    // console.log(drawDiag);
-
+    /**
+    * Drawing graph
+    */
+    /**
+     * * For unique value (eliminating replicates)
+     */
     const uniqueCharacters = new Set<string>();
 
+    /**
+     * *Adding clickable links on diagram
+     */
     for (let i = 0; i < data.result.length; i++) {
         let nameFirstChar = data.result[i]["First Character"];
         let nameSecondChar = data.result[i]["Second Character"];
@@ -38,34 +35,50 @@
         uniqueCharacters.add(`"${nameSecondChar}" [href="http://localhost:5173/characters/${idSecondChar}"];`);
     }
 
+    /**
+     * * Transform "Set" data structure to string (i don't know this good way, but it works)
+    */
     uniqueCharacters.forEach((characterWithLink) => {
         drawDiag += characterWithLink;
     });
 
-    console.log(drawDiag);
+    // console.log(drawDiag);
 
-    // for (let i=0; i<data.result.length; i++){
-    //     let nameFirstChar = data.result[i]["First Character"]
-    //     let nameSecondChar = data.result[i]["Second Character"]
-    //     let relShip = data.result[i]["About relationship"]
-    //     drawDiag += '"'+nameFirstChar+'"->"'+nameSecondChar+'"[label="'+relShip+'"];'
-    // }
-    // onMount(() => {
-    //         graphviz("#graph").renderDot("digraph {"+drawDiag+"}");
-    // });
+    /**
+     * * Add relation in graph
+    */
+    for (let i=0; i<data.result.length; i++){
+        let nameFirstChar = data.result[i]["First Character"]
+        let nameSecondChar = data.result[i]["Second Character"]
+        let relShip = data.result[i]["About relationship"]
+        drawDiag += `"${nameFirstChar}"->"${nameSecondChar}" [label="${relShip}"];`
+        // drawDiag += '"'+nameFirstChar+'"->"'+nameSecondChar+'"[label="'+relShip+'"];'
+    }
+    // console.log(drawDiag);
+
+    /**
+     * * Creating graph
+    */
+    onMount(() => {
+            graphviz("#graph").renderDot("digraph {"+drawDiag+"}");
+    });
 
 
     /**
-     * * filtering data that should not be visible on the page
+     * * Filtering data that should not be visible on the page
      */
 
     const hiddenColumns = ['idFirstChar', 'idSecondChar'];
 
+    
+    //Without this function filterColumns didn't want to work
     type DataRow = {
         [key: string]: any;
     };
-
-    // Funkcja filtrująca kolumny
+    /**
+     * *Column filtering function
+     * @param row
+     */
     const filterColumns = (row: DataRow): DataRow => {
         const filteredRow: DataRow = {};
         Object.keys(row).forEach((key) => {
