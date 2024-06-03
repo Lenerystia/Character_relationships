@@ -1,25 +1,16 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
-
-    // @ts-ignore
-    import { css } from '/styled-system/css'
+    import { navigate } from "$lib/navigate";
+    import '$lib/app.css'
+    // import { css } from '/styled-system/css'
     export let data; // data returned by the load function
 
-    function goToC(){
-        goto('characters');
-    }
-    function goToR(){
-        goto('relations');
-    }
-    function goToCharRel(){
-        goto('/')
-    }
+
 </script>
 
 <div>
-    <button on:click={goToC}>Characters</button>
-    <button on:click={goToR}>Relationships</button>
-    <button on:click={goToCharRel}>Characters relationships</button>
+    <button name="characters" on:click={navigate}>Characters</button>
+    <button name="relations" on:click={navigate}>Relationships</button>
+    <button name="/" on:click={navigate}>Characters relationships</button>
 </div>
 
 <h2>Characters</h2>
@@ -58,7 +49,7 @@
         padding: 5px;
 	}
     tbody tr:nth-child(even) {
-    background-color: #4C8BF5;
-    color: #fff;
+        background-color: #4C8BF5;
+        color: #fff;
     }
 </style>
