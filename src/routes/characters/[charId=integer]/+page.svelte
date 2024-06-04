@@ -5,13 +5,13 @@
 
     export let data
 
-    export let charId: string;
-    charId = $page.params.charId;
+    export let pageCharId: string;
+    pageCharId = $page.params.charId;
     let char = data.result[0]
 
 </script>
 
-<h1>Page for {charId} - {char.firstName} {char.lastName}</h1>
+<h1>Page for {pageCharId} - {char.firstName} {char.lastName}</h1>
 
 <h2>Fist Name: {char.firstName}</h2>
 <h2>Last Name: {char.lastName}</h2>

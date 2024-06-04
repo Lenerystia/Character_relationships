@@ -11,8 +11,8 @@ export const load: PageServerLoad = (async ({params}) => {
     // tu wywali błąd w VS code:
     // const charId = params.charId;
     // tu nie
-    const charId = (params as {charId: string}).charId;
-    const parseCharId = parseInt(charId);
+    const pageCharId = (params as {charId: string}).charId;
+    const parseCharId = parseInt(pageCharId);
     const result = await db.select().from(characters).where(eq(characters.id, parseCharId));
     return {
        result
