@@ -2,8 +2,6 @@
     import { navigate } from "$lib/navigate";
     import '$lib/app.css'
 
-    // @ts-ignore
-    import { css } from '/styled-system/css'
     export let data; // data returned by the load function
 </script>
 

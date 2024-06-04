@@ -11,9 +11,6 @@ importers:
       '@types/d3-graphviz':
         specifier: ^2.6.10
         version: 2.6.10
-      cypress:
-        specifier: ^13.9.0
-        version: 13.9.0
       d3-graphviz:
         specifier: ^5.4.0
         version: 5.4.0(d3-selection@3.0.0)
@@ -60,6 +57,9 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^7.0.0
         version: 7.8.0(eslint@8.57.0)(typescript@5.4.5)
+      cypress:
+        specifier: ^13.10.0
+        version: 13.10.0
       drizzle-kit:
         specifier: ^0.21.1
         version: 0.21.1
@@ -1101,8 +1101,8 @@ packages:
     engines: {node: '>=4'}
     hasBin: true
 
-  cypress@13.9.0:
-    resolution: {integrity: sha512-atNjmYfHsvTuCaxTxLZr9xGoHz53LLui3266WWxXJHY7+N6OdwJdg/feEa3T+buez9dmUXHT1izCOklqG82uCQ==}
+  cypress@13.10.0:
+    resolution: {integrity: sha512-tOhwRlurVOQbMduX+KonoMeQILs2cwR3yHGGENoFvvSoLUBHmJ8b9/n21gFSDqjlOJ+SRVcwuh+fG/JDsHsT6Q==}
     engines: {node: ^16.0.0 || ^18.0.0 || >=20.0.0}
     hasBin: true
 
@@ -3521,7 +3521,7 @@ snapshots:
 
   cssesc@3.0.0: {}
 
-  cypress@13.9.0:
+  cypress@13.10.0:
     dependencies:
       '@cypress/request': 3.0.1
       '@cypress/xvfb': 1.2.4(supports-color@8.1.1)

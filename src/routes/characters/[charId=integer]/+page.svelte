@@ -1,6 +1,7 @@
 <script lang="ts">
     import '$lib/app.css'
     import { page } from '$app/stores';
+    import { navigate } from '$lib/navigate';
 
     export let data
 
@@ -17,3 +18,5 @@
 <h2>ID: {char.id}</h2>
 <p>TODO: 404 - brak takiej postaci (przy próbie wpisania id/uuid jeśli będzie już)</p>
 <p>TODO: UUID</p>
+<br>
+<button id="test_id" name="/" on:click={navigate}>Characters relationships</button>
