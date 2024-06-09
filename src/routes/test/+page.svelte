@@ -1,7 +1,7 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import { graphviz } from "d3-graphviz";
-    import { navigate } from "$lib/navigate";
+    import { navigateBetweenPages } from "$lib/navigate";
     import '$lib/app.css';
 
     let graph: SVGSVGElement;
@@ -39,9 +39,9 @@
 <main>
     <div id="left">
         <p>Only for testing whether it works on a device without access to the database, trasher and other shit</p>
-        <button name="characters" on:click={navigate}>Characters</button>
-        <button name="relations" on:click={navigate}>Relationships</button>
-        <button name="/" on:click={navigate}>Characters relationships</button>
+        <button name="characters" on:click={navigateBetweenPages}>Characters</button>
+        <button name="relations" on:click={navigateBetweenPages}>Relationships</button>
+        <button name="/" on:click={navigateBetweenPages}>Characters relationships</button>
     </div>
     <div id="svg">
         <svg id="graph" bind:this={graph} width=1050px height=1000px/>

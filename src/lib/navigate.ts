@@ -1,22 +1,14 @@
 import { goto } from "$app/navigation";
 
 /**
- * *jedna funkcja do obsługi skakania po stronach za pomocą buttonów
- * @param event 
+ * *Funkcja do obsługi skakania po stronach za pomocą buttonów
+ * *Function to moving between pages using button
+ * @param eventClickButtonByUser - click by user
  */
-export function navigate(event: MouseEvent){
-    const target = event.target as HTMLButtonElement
-    const page = target.name;
-    goto(page);
+export function navigateBetweenPages(eventClickButtonByUser: MouseEvent){
+    const target = eventClickButtonByUser.target as HTMLButtonElement
+    const pageName = target.name;
+    goto(pageName);
 }
 
-    // function goToC(){
-    //     goto('characters');
-    // }
-    // function goToR(){
-    //     goto('relations');
-    // }
-    // function goToCharRel(){
-    //     goto('/')
-    // }
     

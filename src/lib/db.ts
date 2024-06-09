@@ -9,7 +9,7 @@ import { drizzle } from "drizzle-orm/node-postgres";
 // or
 const client = new pkg.Client({
  host: env.DB_HOST,
- port: env.DB_port,
+ port: parseInt('env.DB_port'),
  user: env.DB_USER,
  password: env.DB_PASS,
  database: env.DB_DB,

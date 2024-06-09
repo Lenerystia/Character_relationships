@@ -1,15 +1,20 @@
 <script lang="ts">
-    import { navigate } from "$lib/navigate";
+    import { navigateBetweenPages } from "$lib/navigate";
     import '$lib/app.css'
 
-    export let data; // data returned by the load function
+    /**
+     * * data returned by the load function
+     */
+    export let data;
+    let allRelationships = data.result;
+
 </script>
 
 
 <div>
-    <button name="characters" on:click={navigate}>Characters</button>
-    <button name="relations" on:click={navigate}>Relationships</button>
-    <button name="/" on:click={navigate}>Characters relationships</button>
+    <button name="characters" on:click={navigateBetweenPages}>Characters</button>
+    <button name="relations" on:click={navigateBetweenPages}>Relationships</button>
+    <button name="/" on:click={navigateBetweenPages}>Characters relationships</button>
 </div>
 <h2>Relations</h2>
 
@@ -18,13 +23,13 @@
         <table>
             <thead>
                 <tr>
-                    {#each Object.keys(data.result[0]) as colHead}
+                    {#each Object.keys(allRelationships[0]) as colHead}
                         <th>{colHead}</th>
                     {/each}
                 </tr>
             </thead>
             <tbody>
-                {#each Object.values(data.result) as row}
+                {#each Object.values(allRelationships) as row}
                     <tr>
                         {#each Object.values(row) as cell}
                             <td>{cell}</td>
